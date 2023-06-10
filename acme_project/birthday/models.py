@@ -47,7 +47,7 @@ class Birthday(models.Model):
 class Congratulation(models.Model):
     text = models.TextField('Текст поздравления')
     birthday = models.ForeignKey(
-        Birthday, 
+        Birthday,
         on_delete=models.CASCADE,
         related_name='congratulations',
     )

@@ -22,11 +22,8 @@ INSTALLED_APPS = [
     'birthday.apps.BirthdayConfig',
     'pages.apps.PagesConfig',
     'users.apps.UsersConfig',
-<<<<<<< HEAD
     'core.apps.CoreConfig',
     'debug_toolbar',
-=======
->>>>>>> f854df46b3006d3cc3fa698b6b0241a1ed2896ca
 ]
 
 MIDDLEWARE = [
