@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 from django.shortcuts import get_object_or_404, redirect, render
 from django.core.exceptions import PermissionDenied
-=======
-# from django.shortcuts import get_object_or_404, redirect, render
->>>>>>> f854df46b3006d3cc3fa698b6b0241a1ed2896ca
 # from django.core.paginator import Paginator
 from django.views.generic import (
     CreateView, DeleteView, DetailView, ListView, UpdateView)
@@ -21,11 +17,7 @@ class BirthdayMixin:
     # get_absolute_url(self)
 
 
-<<<<<<< HEAD
 class BirthdayDeleteView(LoginRequiredMixin, BirthdayMixin, DeleteView):
-=======
-class BirthdayDeleteView(BirthdayMixin, DeleteView):
->>>>>>> f854df46b3006d3cc3fa698b6b0241a1ed2896ca
     success_url = reverse_lazy('birthday:list')
 
     def dispatch(self, request, *args, **kwargs):
@@ -38,7 +30,6 @@ class BirthdayDeleteView(BirthdayMixin, DeleteView):
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
 
-<<<<<<< HEAD
 
 class BirthdayCreateView(LoginRequiredMixin, BirthdayMixin, CreateView):
     form_class = BirthdayForm
@@ -63,27 +54,14 @@ class BirthdayUpdateView(LoginRequiredMixin, BirthdayMixin, UpdateView):
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
 
-=======
-class BirthdayCreateView(BirthdayMixin, CreateView):
-    form_class = BirthdayForm
-
-
-class BirthdayUpdateView(BirthdayMixin, UpdateView):
-    form_class = BirthdayForm
-
->>>>>>> f854df46b3006d3cc3fa698b6b0241a1ed2896ca
 
 class BirthdayDetailView(BirthdayMixin, DetailView):
 
     def get_context_data(self, **kwargs):
-        # Получаем словарь контекста:
         context = super().get_context_data(**kwargs)
-        # Добавляем в словарь новый ключ:
         context['birthday_countdown'] = calculate_birthday_countdown(
-            # Дату рождения берём из объекта в словаре context:
             self.object.birthday
         )
-<<<<<<< HEAD
         # Записываем в переменную form пустой объект формы.
         context['form'] = CongratulationForm()
         # Запрашиваем все поздравления для выбранного дня рождения.
@@ -92,24 +70,17 @@ class BirthdayDetailView(BirthdayMixin, DetailView):
             # чтобы избежать множества запросов к БД.
             self.object.congratulations.select_related('author')
         )
-=======
-        # Возвращаем словарь контекста.
->>>>>>> f854df46b3006d3cc3fa698b6b0241a1ed2896ca
         return context
 
 
 class BirthdayListView(BirthdayMixin, ListView):
-<<<<<<< HEAD
     queryset = Birthday.objects.prefetch_related(
         'tags'
     ).select_related('author')
-=======
->>>>>>> f854df46b3006d3cc3fa698b6b0241a1ed2896ca
     ordering = 'id'
     paginate_by = 10
 
 
-<<<<<<< HEAD
 @login_required
 def add_comment(request, pk):
     # Получаем объект дня рождения или выбрасываем 404 ошибку.
@@ -129,8 +100,6 @@ def add_comment(request, pk):
     return redirect('birthday:detail', pk=pk)
 
 
-=======
->>>>>>> f854df46b3006d3cc3fa698b6b0241a1ed2896ca
 # def birthday(request, pk=None):
 #     if pk is not None:
 #         instance = get_object_or_404(Birthday, pk=pk)

@@ -1,4 +1,3 @@
-<!-- templates/includes/header.html -->
 <header>
   <nav class="navbar shadow-sm">
     <div class="container">
@@ -21,7 +20,6 @@
               Cписок дней рождения
             </a>
           </li>
-<<<<<<< HEAD
           {% if user.is_authenticated %}
             <span class="navbar-text">Пользователь: <b>{{ user.username }}</b></span>
             <!-- Новая кнопка -->
@@ -41,24 +39,6 @@
               <a class="nav-link{% if view_name == 'registration' %} active {% endif %}" href="{% url 'registration' %}">Регистрация</a>
             </li>
           {% endif %}
-=======
-
-          <!-- Это блок ссылок для авторизованного пользователя -->
-          {% if user.is_authenticated %}
-            <span class="navbar-text">Пользователь: <b>{{ user.username }}</b></span>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Выйти</a>
-            </li>
-          <!-- Конец блока ссылок для авторизованного пользователя -->
-
-          <!-- А здесь блок ссылок для неавторизованного пользователя -->
-          {% else %}
-            <li class="nav-item">
-              <a class="nav-link{% if view_name == 'login' %} active {% endif %}" href="{% url 'login' %}">Войти</a>
-            </li>        
-          {% endif %}
-          <!-- Конец блока ссылок для неавторизованного пользователя -->
->>>>>>> f854df46b3006d3cc3fa698b6b0241a1ed2896ca
         </ul>
       {% endwith %}
     </div>
